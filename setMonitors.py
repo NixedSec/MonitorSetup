@@ -65,36 +65,36 @@ if (errorFound):
         while (monitorCount > 0):
             monitorKey = wrg.OpenKeyEx(location, baseLocation + r"\\" + wrg.EnumKey(regKey, 0), 0, wrg.KEY_ALL_ACCESS)
 
-        try:
-            print ("Subkeys deletion")
             try:
-                currentKey = wrg.OpenKeyEx(location, baseLocation + r"\\" + wrg.EnumKey(regKey, 0) + "\\00\\00", 0, wrg.KEY_ALL_ACCESS)
-                wrg.DeleteKey(currentKey, "")
-            except Exception as f:
-                print (f)
-
-            try:
-                currentKey = wrg.OpenKeyEx(location, baseLocation + r"\\" + wrg.EnumKey(regKey, 0) + "\\01\\00", 0, wrg.KEY_ALL_ACCESS)
-                wrg.DeleteKey(currentKey, "")
-            except Exception as f:
-                print (f)
-
-            try:
-                currentKey = wrg.OpenKeyEx(location, baseLocation + r"\\" + wrg.EnumKey(regKey, 0) + "\\00", 0, wrg.KEY_ALL_ACCESS)
-                wrg.DeleteKey(currentKey, "")
-            except Exception as f:
-                print (f)
-
-            try:
-                currentKey = wrg.OpenKeyEx(location, baseLocation + r"\\" + wrg.EnumKey(regKey, 0) + "\\01", 0, wrg.KEY_ALL_ACCESS)
-                wrg.DeleteKey(currentKey, "")
-            except Exception as f:
-                print (f)
-        except Exception as e:
-            print (e)
-
-        monitorCount -= 1
-        wrg.DeleteKey(monitorKey, "")
+                print ("Subkeys deletion")
+                try:
+                    currentKey = wrg.OpenKeyEx(location, baseLocation + r"\\" + wrg.EnumKey(regKey, 0) + "\\00\\00", 0, wrg.KEY_ALL_ACCESS)
+                    wrg.DeleteKey(currentKey, "")
+                except Exception as f:
+                    print (f)
+    
+                try:
+                    currentKey = wrg.OpenKeyEx(location, baseLocation + r"\\" + wrg.EnumKey(regKey, 0) + "\\01\\00", 0, wrg.KEY_ALL_ACCESS)
+                    wrg.DeleteKey(currentKey, "")
+                except Exception as f:
+                    print (f)
+    
+                try:
+                    currentKey = wrg.OpenKeyEx(location, baseLocation + r"\\" + wrg.EnumKey(regKey, 0) + "\\00", 0, wrg.KEY_ALL_ACCESS)
+                    wrg.DeleteKey(currentKey, "")
+                except Exception as f:
+                    print (f)
+    
+                try:
+                    currentKey = wrg.OpenKeyEx(location, baseLocation + r"\\" + wrg.EnumKey(regKey, 0) + "\\01", 0, wrg.KEY_ALL_ACCESS)
+                    wrg.DeleteKey(currentKey, "")
+                except Exception as f:
+                    print (f)
+            except Exception as e:
+                print (e)
+    
+            monitorCount -= 1
+            wrg.DeleteKey(monitorKey, "")
     except Exception as e:
         print (e)
         print ("all keys deleted")
